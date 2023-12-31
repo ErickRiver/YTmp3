@@ -1,0 +1,270 @@
+:root {
+    --clr-amarillo: #b18a0c;
+    --clr-rojo: rgb(122, 0, 0);
+    --clr-negro: #0f0f0f;
+    --clr-blanco: #ececec;
+    --clr-gris: #757575;
+}
+
+body {
+    background-color: var(--clr-negro);
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body.white {
+    background-color: var(--clr-blanco);
+}
+
+select, input{
+    font-size: 18px;
+    background-color: var(--clr-blanco);
+    border: 2px solid var(--clr-negro);
+    height: 30px;
+    border-radius: 8px;
+}
+
+select {
+    width: 30%;
+}
+
+input {
+    padding: 5px;
+    width: 60%;
+    outline-color: var(--clr-rojo);
+    transition-duration: .5s;
+}
+
+input:focus {
+    width: 80%;
+}
+
+#titulo {
+    text-align: center;
+    width: 80%;
+    text-transform: uppercase;
+    font-size: 52px;
+    color: var(--clr-blanco);
+}
+
+.typed-titulo {    
+    font: bold;
+    color: var(--clr-rojo);
+    font-style: normal;
+}
+
+#titulo.white {
+    color: var(--clr-negro);
+}
+
+#txtUrl {
+    border: 5px solid var(--clr-rojo);
+}
+
+.contenedor {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 12vh;
+    border-bottom: 2px solid var(--clr-blanco);
+}
+
+.header.white {
+    border-bottom: 2px solid var(--clr-negro);
+}
+
+.header .tema {
+    background-color: var(--clr-blanco);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 5%;
+    cursor: pointer;
+    transition-duration: .5s;
+}
+
+.header .tema.white {
+    background-color: var(--clr-negro);
+}
+
+.header .tema:hover {
+    transform: scale(1.1);
+}
+
+#icon {
+    display: flex;
+    align-items: center;
+    color: var(--clr-blanco);
+    gap: 8px;
+
+    font-weight: 800;
+    font-size: 16px;
+    height: 100%;
+    margin-left: 10%;
+}
+
+#icon.white p {
+    color: var(--clr-negro);
+}
+
+#icon p {
+    font-size: 28px;
+}
+
+#icon i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--clr-rojo);
+    border-radius: 10px;
+    border: none;
+    
+    width: 40px;
+    height: 40px;
+}
+
+#downloadForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 35px;
+    width: 80%;
+}
+
+#downloadForm button {
+    width: 200px;
+}
+
+
+.opciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 20px;
+    padding: 35px;
+    width: 80%;
+}
+
+.opciones button {
+    display: flex;
+    border: none;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: .3s ease all;
+}
+
+.btn.white, .btn.btn2.white { 
+    border: 2px solid var(--clr-negro);
+}
+
+.btn.btn1 span,
+.btn.btn2 span {
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    transition: .3s ease all;
+}
+
+.btn.btn1::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: calc(-100% - 77px);
+
+    border-bottom: 80px solid var(--clr-gris);
+    border-right: 80px solid transparent;
+
+    transition: .3s ease-in-out all;
+}
+
+.btn.btn1:hover::after {
+    left: 0;
+}
+
+.btn.btn1:hover span {
+    color: var(--clr-blanco);
+}
+
+.btn.btn2::after {
+    content: "";
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    top: -200%;
+    left: 0;
+    background-color: var(--clr-rojo);
+    z-index: 1;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    transition: .3s ease-in all;
+}
+
+.btn.btn2:hover::after {
+    top: 0;
+}
+
+.btn.btn2:hover span {
+    color: var(--clr-blanco);
+}
+
+@media screen and (max-width: 500px) {
+    .contenedor {
+        margin-top: 20vh;
+    }
+
+    #titulo {
+        font-size: 36px;
+    }
+
+    .opciones {
+        flex-direction: column;
+    }
+
+    input {
+        width: 95%;
+    }
+
+    input:focus {
+        width: 95%;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .contenedor {
+        margin-top: 30vh;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>YTmp3</title>
+</head>
+
+<body>
+    <header class="header">
+        <div id="icon">
+            <i class="fas fa-play"></i>
+            <p>YTmp3</p>
+        </div>
+
+        <button id="btnTema" class="btn tema"></button>
+    </header>
+
+    <div class="contenedor">
+        <h1 id="titulo">Descarga de YouTube <span class="typed"></span></h1>
+        <div class="opciones">
+            <button class="btn btn1" id="btnDescargarPlaylistVideo"><span for=""><i class="fas fa-film"></i> Playlist en
+                    Video</span></button>
+            <button class="btn btn1" id="btnDescargarPlaylistMP3"><span for=""><i class="fas fa-music"></i> Playlist en
+                    MP3</span></button>
+            <button class="btn btn1" id="btnDescargarVideo"><span for=""><i class="fas fa-video"></i>
+                    Video</span></button>
+            <button class="btn btn1" id="btnDescargarMP3"><span for=""><i class="fas fa-file-audio"></i>
+                    MP3</span></button>
+        </div>
+
+        <div id="downloadForm">
+            <input type="text" id="txtUrl" placeholder="Pegar el enlace aqui">
+
+            <button class="btn btn2" id="btnDescargar"><span for=""><i class="fas fa-download"></i> Descargar
+                </span></button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='js/sweetalert2.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/typed.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
