@@ -52,7 +52,7 @@ def descargar_video_mp3():
     video_url = request.args.get('url', '')
     yt = YouTube(video_url)
 
-    video = yt.streams.filter(only_audio=True).first()
+    video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
     print("Descargando " + video.title)
 
     # Descargar el archivo de video
@@ -65,7 +65,7 @@ def descargar_video_mp3():
 
     # Usar moviepy para convertir el archivo de audio al formato MP3
     clip = mp.AudioFileClip(out_file)
-    clip.write_audiofile(new_file)
+    clip.write_audiofile(new_file, bitrate="160k")
 
     # Eliminar el archivo de audio original
     os.remove(out_file)

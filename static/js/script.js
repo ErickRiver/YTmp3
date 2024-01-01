@@ -241,3 +241,7 @@ function toastInfo(mensaje, duracion) {
         title: mensaje
     });
 }
+
+function seleccionarTexto(input) {
+    input.setSelectionRange(0, input.value.length);
+}
