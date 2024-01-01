@@ -37,6 +37,12 @@
         <div id="downloadForm">
             <input type="text" id="txtUrl" placeholder="Pegar el enlace aqui" onclick="seleccionarTexto(this)">
 
+            <select id="cmbCalidad" name="cmbCalidad">
+                <option value="128">Baja Calidad (128kbps)</option>
+                <option value="160" selected>Calidad Estándar (160kbps)</option>
+                <option value="320">Alta Calidad (320kbps)</option>
+            </select>
+
             <button class="btn btn2" id="btnDescargar"><span for=""><i class="fas fa-download"></i> Descargar
                 </span></button>
         </div>

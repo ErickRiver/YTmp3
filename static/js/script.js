@@ -14,6 +14,16 @@ let descargaSeleccionada;
 let playlistLength;
 let cambioTema = false;
 
+ocultarSelect();
+
+function ocultarSelect() {
+    document.getElementById('cmbCalidad').style.display = "none";
+}
+
+function mostrarSelect() {
+    document.getElementById('cmbCalidad').style.display = "";
+}
+
 const typed = new Typed('.typed', {
     strings: [
         '<i class="typed-titulo">mp3</i>', 
@@ -61,21 +71,25 @@ btnTema.addEventListener("click", function(){
 btnDescargarPlaylistMP3.addEventListener("click", function(){
     descargaSeleccionada = "playlistMp3";
     toastInfo("Descargar Playlist en Mp3", 3000);
+    mostrarSelect();
 });
 
 btnDescargarMP3.addEventListener("click", function(){
     descargaSeleccionada = "mp3";
     toastInfo("Descargar en Mp3", 3000);
+    mostrarSelect();
 });
 
 btnDescargarPlaylistVideo.addEventListener("click", function(){
     descargaSeleccionada = "playlistVideo";
     toastInfo("Descargar Playlist en Mp4", 3000);
+    ocultarSelect();
 });
 
 btnDescargarVideo.addEventListener("click", function(){
     descargaSeleccionada = "video";
     toastInfo("Descargar mp4", 3000);
+    ocultarSelect();
 });
 
 btnDescargar.addEventListener("click", function(){
@@ -136,7 +150,8 @@ function descargarPlaylistVideo(playlist) {
 
 function descargarMp3(urlVideo) {
     if (urlVideo != "") {
-        var url = `../descargar_video_mp3?url=${encodeURIComponent(urlVideo)}`;
+        calidadAudio = document.getElementById('cmbCalidad').value;
+        const url = `../descargar_video_mp3?url=${encodeURIComponent(urlVideo)}&calidadAudio=${encodeURIComponent(calidadAudio)}`;
         
         toastInfo("Descargando...", 100000);
     

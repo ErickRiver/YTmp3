@@ -49,11 +49,13 @@ def getPlaylist():
 
 @app.route('/descargar_video_mp3', methods=['GET'])
 def descargar_video_mp3():
-    video_url = request.args.get('url', '')
+    video_url = request.args.get('url')
+    calidad_audio = request.args.get('calidadAudio')
+    
     yt = YouTube(video_url)
-
+    
     video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
-    print("Descargando " + video.title)
+    print(f"Descargando {video.title} en {calidad_audio}kbps ")
 
     # Descargar el archivo de video
     downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
@@ -65,7 +67,7 @@ def descargar_video_mp3():
 
     # Usar moviepy para convertir el archivo de audio al formato MP3
     clip = mp.AudioFileClip(out_file)
-    clip.write_audiofile(new_file, bitrate="160k")
+    clip.write_audiofile(new_file, bitrate=f"{calidad_audio}k")
 
     # Eliminar el archivo de audio original
     os.remove(out_file)
